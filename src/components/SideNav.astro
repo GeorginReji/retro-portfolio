@@ -140,9 +140,15 @@ const socialItems = [
 	});
 
 	// Add scroll event listener
-	const detailsContainer =
-		document.getElementsByClassName('details-container')[0];
-	detailsContainer.addEventListener('scroll', updateActiveNavItem);
+	if (window.innerWidth < 768) {
+		const detailsContainer =
+			document.getElementsByClassName('content-container')[0];
+		detailsContainer.addEventListener('scroll', updateActiveNavItem);
+	} else {
+		const detailsContainer =
+			document.getElementsByClassName('details-container')[0];
+		detailsContainer.addEventListener('scroll', updateActiveNavItem);
+	}
 	// Initial call to set active section on page load
 	updateActiveNavItem();
 </script>
