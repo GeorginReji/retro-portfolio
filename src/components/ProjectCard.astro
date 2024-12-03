@@ -1,0 +1,118 @@
+---
+export interface Props {
+	title: string;
+	description: string[];
+	technologies: string[];
+	githubUrl?: string;
+	liveUrl?: string;
+}
+
+const { title, description, technologies, githubUrl, liveUrl } = Astro.props;
+---
+
+<div class="project-card pixel-corners">
+	<div class="project-content">
+		<h3>{title}</h3>
+		<div class="description">
+			{
+				description.map((point) => (
+					<div class="description-point">
+						<span>•</span>
+						<p>{point}</p>
+					</div>
+				))
+			}
+		</div>
+		<div class="links">
+			{
+				githubUrl && (
+					<a href={githubUrl} target="_blank" class="github-link">
+						<svg height="24" width="24" viewBox="0 0 16 16">
+							<path
+								fill="currentColor"
+								d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+							/>
+						</svg>
+					</a>
+				)
+			}
+			{
+				liveUrl && (
+					<a href={liveUrl} target="_blank" class="live-link">
+						LIVE
+					</a>
+				)
+			}
+		</div>
+	</div>
+	<div class="tech-stack">
+		{technologies.map((tech) => <span class="tech-badge">{tech}</span>)}
+	</div>
+</div>
+
+<style>
+	.project-card {
+		background: rgba(10, 10, 10, 0.9);
+		border: 2px solid var(--secondary);
+		padding: 1.5rem;
+		margin-bottom: 2rem;
+		position: relative;
+	}
+
+	h3 {
+		color: var(--primary);
+		font-size: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.description {
+		font-size: 0.8rem;
+		font-weight: 400;
+		line-height: 1.5;
+		margin-bottom: 1.5rem;
+	}
+
+	.description-point {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5rem;
+	}
+
+	.description p {
+		margin: 0.5rem 0;
+	}
+
+	.links {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.github-link,
+	.live-link {
+		color: var(--text);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.github-link:hover,
+	.live-link:hover {
+		color: var(--primary);
+	}
+
+	.tech-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+		justify-content: flex-end;
+	}
+
+	.tech-badge {
+		background: rgba(57, 255, 20, 0.1);
+		border: 1px solid var(--primary);
+		padding: 0.2rem 0.5rem;
+		font-size: 0.6rem;
+		border-radius: 2px;
+	}
+</style>

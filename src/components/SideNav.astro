@@ -1,0 +1,627 @@
+---
+const navItems = [
+	// { href: "#home", text: "HOME" },
+	{ href: '#about', text: 'ABOUT' },
+	{ href: '#expertise', text: 'EXPERTISE' },
+	{ href: '#projects', text: 'PROJECTS' },
+	{ href: '#contact', text: 'CONTACT' },
+];
+const socialItems = [
+	{
+		text: 'linkedin',
+		link: 'https://www.linkedin.com/in/georgin-reji-7b692a1b7/',
+		viewBox: '0 0 24 24',
+		d: [
+			'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z',
+		],
+	},
+	{
+		text: 'github',
+		link: 'https://github.com/GeorginReji',
+		viewBox: '0 0 24 24',
+		d: [
+			'M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5808 20.2773 21.0498 21.7438 19.0074C23.2103 16.9651 23.9994 14.5143 24 12C24 5.37 18.63 0 12 0Z',
+		],
+	},
+	{
+		text: 'X',
+		link: 'https://x.com/georgin_reji',
+		viewBox: '0 0 24 24',
+		d: [
+			'M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H1.128l9.108-10.423L0 1.153h7.594l5.243 6.932ZM17.05 20.77h2.034L7.053 3.214H4.909Z',
+		],
+	},
+	{
+		text: 'discord',
+		link: 'https://discord.com/users/horizon9220',
+		viewBox: '0 0 24 24',
+		d: [
+			'M20.317 4.3698a19.7408 19.7408 0 00-4.8752-1.5066.0741.0741 0 00-.0787.0371c-.211.3767-.4447.8676-.6083 1.2567-1.8423-.2762-3.68-.2762-5.4868 0-.1636-.3891-.4026-.8804-.6189-1.2567a.077.077 0 00-.0788-.037 19.7645 19.7645 0 00-4.8752 1.5066.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9868 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8734-1.2952 1.226-1.9991a.076.076 0 00-.0416-.1062c-.6528-.2476-1.2743-.5495-1.8722-.8906a.077.077 0 01-.0076-.1277c.1258-.0943.252-.1923.3728-.2914a.0743.0743 0 01.0776-.0105c3.9378 1.7966 8.1868 1.7966 12.0619 0a.0739.0739 0 01.0785.0095c.1208.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8908.077.077 0 00-.0407.1067c.3604.6989.7722 1.3637 1.225 1.9905a.076.076 0 00.0842.0284c1.9508-.6067 3.9393-1.522 6.0025-3.0295a.077.077 0 00.0313-.0552c.4848-5.0748-.8123-9.5515-3.4674-13.5318a.061.061 0 00-.0312-.0288zm-12.1455 10.8452c-1.1546 0-2.1009-.9989-2.1009-2.2265 0-1.2276.9309-2.2265 2.1009-2.2265 1.1836 0 2.1264.997 2.1009 2.2265 0 1.2276-.9309 2.2265-2.1009 2.2265zm7.6578 0c-1.1546 0-2.1009-.9989-2.1009-2.2265 0-1.2276.9309-2.2265 2.1009-2.2265 1.1836 0 2.1264.997 2.1009 2.2265 0 1.2276-.9173 2.2265-2.1009 2.2265z',
+		],
+	},
+	{
+		text: 'blue sky',
+		link: 'https://bsky.app/profile/georgin-reji.bsky.social',
+		viewBox: '0 0 512 512',
+		d: [
+			'M243.695,179.339c0.703,4.906,5.813,7.438,7.719,1.406c1.891-6.031-4.828-17.219-22.219-36.531 c-14.828-16.484-35.625-39.391-23.844-51.578c14.609-10.078,8.469-27.75-4.172-29.469c-11.313-1.516-21.609,13.578-15.031,38.703 C192.711,126.964,241.695,165.292,243.695,179.339z',
+			'M445.898,83.886c-74.469,0-160.703,89.859-174.516,111.078c-3.594-4.578-9.109-7.578-15.375-7.578 c-6.281,0-11.797,3-15.391,7.578C226.805,173.73,140.57,83.886,66.102,83.886c-76.828,0-70.547,68.984-59.578,112.891 c10.969,43.922,56.453,92.516,106.609,94.094c-56.438,25.078-61.141,89.375-43.891,119.156 c16.359,28.25,103.266,92.016,167.156-50.296v29.141c0,10.813,8.781,19.593,19.609,19.593c10.813,0,19.594-8.781,19.594-19.593 v-29.156c63.891,142.328,150.813,78.562,167.156,50.312c17.25-29.781,12.547-94.078-43.891-119.156 c50.172-1.578,95.641-50.172,106.609-94.094C516.445,152.871,522.727,83.886,445.898,83.886z',
+			'M268.305,179.339c2-14.047,50.984-52.375,57.563-77.469c6.563-25.125-3.734-40.219-15.047-38.703 c-12.641,1.719-18.766,19.391-4.172,29.469c11.781,12.188-9.016,35.094-23.844,51.578c-17.391,19.313-24.109,30.5-22.219,36.531 C262.492,186.777,267.602,184.246,268.305,179.339z',
+		],
+	},
+	// {
+	// 	text: 'mastodon',
+	// 	link: '',
+	// 	viewBox: '0 0 32 32',
+	// 	d: [
+	// 		'M30.921 10.505c0-6.943-4.547-8.975-4.547-8.975-2.292-1.057-6.229-1.5-10.323-1.531h-0.099c-4.089 0.031-8.027 0.473-10.317 1.531 0 0-4.553 2.032-4.553 8.975 0 1.588-0.031 3.489 0.021 5.505 0.167 6.792 1.245 13.479 7.521 15.14 2.896 0.767 5.38 0.928 7.38 0.819 3.631-0.204 5.667-1.297 5.667-1.297l-0.12-2.636c0 0-2.593 0.819-5.505 0.719-2.885-0.099-5.932-0.307-6.396-3.853-0.047-0.328-0.067-0.661-0.067-0.995 0 0 2.832 0.692 6.427 0.859 2.192 0.099 4.249-0.129 6.344-0.38 4.005-0.473 7.5-2.948 7.937-5.203 0.687-3.552 0.629-8.677 0.629-8.677zM25.557 19.453h-3.328v-8.161c0-1.719-0.724-2.595-2.172-2.595-1.599 0-2.401 1.037-2.401 3.084v4.469h-3.312v-4.469c0-2.047-0.803-3.084-2.401-3.084-1.448 0-2.172 0.876-2.172 2.595v8.156h-3.328v-8.401c0-1.719 0.437-3.083 1.317-4.093 0.907-1.011 2.089-1.532 3.563-1.532 1.704 0 2.995 0.657 3.849 1.969l0.828 1.391 0.828-1.391c0.855-1.312 2.145-1.969 3.849-1.969 1.473 0 2.661 0.521 3.568 1.532 0.875 1.011 1.312 2.375 1.312 4.093z',
+	// 	],
+	// },
+	// {
+	// 	text: 'dribble',
+	// 	link: '',
+	// 	viewBox: '0 0 32 32',
+	// 	d: [
+	// 		'M25.916 7.921c-1.881 2.234-4.289 3.965-7.035 5.009l-0.118 0.039c0.3 0.612 0.587 1.231 0.85 1.857 0.1 0.225 0.187 0.45 0.275 0.662 0.927-0.102 2.003-0.16 3.092-0.16 2.063 0 4.077 0.208 6.023 0.605l-0.193-0.033c-0.020-3.040-1.107-5.821-2.904-7.994l0.017 0.021zM13.001 3.569c1.595 2.15 3.176 4.6 4.598 7.151l0.178 0.347c2.712-0.908 4.989-2.511 6.694-4.6l0.021-0.026c-2.247-2.006-5.228-3.232-8.494-3.232-1.063 0-2.096 0.13-3.084 0.375l0.088-0.018zM3.46 13.395c4.219-0.022 8.295-0.59 12.176-1.636l-0.333 0.076c-1.652-2.899-3.222-5.318-4.912-7.644l0.163 0.236c-3.596 1.721-6.227 4.966-7.077 8.875l-0.015 0.085zM6.484 24.585c2.42-3.882 6.010-6.839 10.271-8.408l0.141-0.045c0.169-0.056 0.337-0.105 0.506-0.15-0.325-0.731-0.675-1.458-1.040-2.174-3.888 1.154-8.355 1.819-12.977 1.819-0.066 0-0.131-0-0.196-0l0.010 0-0.005 0.39c0 0.003 0 0.006 0 0.009 0 3.297 1.25 6.302 3.301 8.568l-0.010-0.011zM21.005 27.809c-0.682-3.699-1.63-6.957-2.863-10.070l0.126 0.361-0.082 0.025c-4.314 1.346-7.826 4.192-10.002 7.915l-0.045 0.083c2.145 1.688 4.885 2.707 7.863 2.707 1.805 0 3.522-0.374 5.078-1.049l-0.083 0.032zM28.646 18.052c-1.571-0.474-3.376-0.747-5.245-0.747-0.964 0-1.911 0.073-2.836 0.213l0.104-0.013c0.98 2.564 1.842 5.629 2.436 8.789l0.054 0.344c2.874-1.96 4.893-4.993 5.482-8.51l0.010-0.075zM16 30.996c0 0 0 0-0 0-8.282 0-14.996-6.714-14.996-14.996s6.714-14.996 14.996-14.996c8.282 0 14.996 6.714 14.996 14.996 0 0 0 0 0 0v0c-0.011 8.277-6.718 14.984-14.995 14.996h-0.001z',
+	// 	],
+	// },
+];
+// TODO: Make links active based on current active section
+// TODO: Freelance project alignment fix.
+// TODO: Mobile view social display button.
+---
+
+<nav class="side-nav">
+	{
+		navItems.map((item) => (
+			<a href={item.href} class="nav-item">
+				{item.text}
+			</a>
+		))
+	}
+	<div class="tooltip-container">
+		<div class="tooltip-content">
+			<div class="tooltip-social-icons">
+				<a href="#" class="tooltip-social-icon twitter">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+					>
+						<path
+							d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+						></path>
+					</svg>
+				</a>
+				<a href="#" class="tooltip-social-icon facebook">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+					>
+						<path
+							d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+						></path>
+					</svg>
+				</a>
+				<a href="#" class="tooltip-social-icon linkedin">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+					>
+						<path
+							d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+						></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+		<div class="button-content">
+			<svg
+				class="share-icon"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="24"
+				height="24"
+			>
+				<path
+					d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
+				></path>
+			</svg>
+		</div>
+	</div>
+
+	<div class="social-links">
+		{
+			socialItems.map((item) => (
+				<a href={item.link} target="_blank" class="social-icon">
+					<svg
+						height="24"
+						width="24"
+						viewBox={item.viewBox}
+						fill="currentColor"
+					>
+						{item.d.map((d) => (
+							<path d={d} />
+						))}
+					</svg>
+				</a>
+			))
+		}
+	</div>
+</nav>
+
+<style>
+	.side-nav {
+		position: fixed;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: 20px;
+		border: 2px solid var(--secondary);
+		background: rgba(10, 10, 10, 0.9);
+		z-index: 1000;
+	}
+
+	.nav-item {
+		display: block;
+		color: var(--primary);
+		text-decoration: none;
+		margin: 15px 0;
+		transition: all 0.3s ease;
+		font-size: 0.8rem;
+	}
+
+	.nav-item:hover {
+		text-shadow: 0 0 8px var(--primary);
+		transform: translateX(5px);
+	}
+
+	.social-links {
+		margin-top: 30px;
+		padding-top: 20px;
+		border-top: 1px solid var(--secondary);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.social-icon {
+		display: block;
+		color: var(--text);
+		text-decoration: none;
+		font-size: 0.6rem;
+		margin: 10px 0;
+		transition: color 0.3s ease;
+	}
+
+	.social-icon:hover {
+		color: var(--primary);
+	}
+
+	/* Custom share button CSS start */
+	/* Container Styles */
+	.tooltip-container {
+		position: relative;
+		display: inline-block;
+		font-family: 'Arial', sans-serif;
+		overflow: visible;
+		z-index: 1001;
+	}
+
+	/* Button Styles */
+	.button-content {
+		--main-color: rgb(46, 213, 115);
+		--main-bg-color: rgba(46, 213, 116, 0.36);
+		--pattern-color: rgba(46, 213, 116, 0.073);
+		filter: hue-rotate(0deg);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: radial-gradient(
+				circle,
+				var(--main-bg-color) 0%,
+				rgba(0, 0, 0, 0) 95%
+			),
+			linear-gradient(var(--pattern-color) 1px, transparent 1px),
+			linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+		/* background-size:
+			cover,
+			8px 8px,
+			8px 8px;
+		background-position:
+			center center,
+			center center,
+			center center; */
+
+		/* border-width: 1px 0 1px 0; */
+		border: 1px solid var(--main-bg-color);
+		color: var(--main-color);
+		padding: 1rem 3rem;
+		transition: background-size 0.2s ease-in-out;
+		border-radius: 50px;
+		cursor: pointer;
+		/* transition:
+			background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+			transform 0.3s ease,
+			box-shadow 0.4s ease; */
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+	}
+
+	.button-content::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: linear-gradient(135deg, var(--primary), var(--secondary));
+		filter: blur(15px);
+		opacity: 0;
+		transition: opacity 0.5s ease;
+		z-index: -1;
+	}
+
+	.button-content::after {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		/* background: radial-gradient(
+			circle,
+			rgba(255, 255, 255, 0.3) 0%,
+			rgba(255, 255, 255, 0) 70%
+		); */
+		transform: scale(0);
+		transition: transform 0.6s ease-out;
+		z-index: -1;
+	}
+
+	.button-content:hover::before {
+		opacity: 1;
+	}
+
+	.button-content:hover::after {
+		transform: scale(1);
+	}
+
+	.button-content:active {
+		filter: hue-rotate(250deg);
+	}
+
+	.text {
+		font-size: 18px;
+		font-weight: 600;
+		margin-right: 12px;
+		white-space: nowrap;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		transition: letter-spacing 0.3s ease;
+	}
+
+	.button-content:hover .text {
+		letter-spacing: 1px;
+	}
+
+	.share-icon {
+		fill: var(--text);
+		transition:
+			transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+			fill 0.3s ease;
+		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+	}
+
+	.button-content:hover .share-icon {
+		transform: rotate(180deg) scale(1.1);
+		fill: var(--text);
+	}
+
+	/* Tooltip Styles */
+	.tooltip-content {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%) scale(0.8);
+		background: white;
+		border-radius: 15px;
+		padding: 1rem;
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+			transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+			visibility 0.5s ease;
+		z-index: 1001;
+		pointer-events: none;
+		backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.9);
+	}
+
+	.tooltip-container:hover .tooltip-content {
+		opacity: 1;
+		visibility: visible;
+		/* transform: translateX(-50%) scale(1); */
+		pointer-events: auto;
+	}
+
+	/* Social Icons Styles */
+	.tooltip-social-icons {
+		display: flex;
+		justify-content: flex-start;
+		gap: 12px;
+	}
+
+	.tooltip-social-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 4rem;
+		height: 4rem;
+		border-radius: 50%;
+		background: #f0f0f0;
+		transition:
+			transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+			background 0.3s ease,
+			box-shadow 0.4s ease;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.tooltip-social-icon::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			circle at center,
+			rgba(255, 255, 255, 0.8) 0%,
+			rgba(255, 255, 255, 0) 70%
+		);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.tooltip-social-icon:hover::before {
+		opacity: 1;
+	}
+
+	.tooltip-social-icon svg {
+		width: 24px;
+		height: 24px;
+		fill: #333;
+		transition:
+			transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+			fill 0.3s ease;
+		z-index: 1;
+	}
+
+	.tooltip-social-icon:hover {
+		transform: translateY(-5px) scale(1.1);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.tooltip-social-icon:active {
+		transform: translateY(-2px) scale(1.05);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.tooltip-social-icon:hover svg {
+		transform: scale(1.2);
+		fill: white;
+	}
+
+	.tooltip-social-icon.twitter:hover {
+		background: linear-gradient(135deg, #1da1f2, #1a91da);
+	}
+
+	.tooltip-social-icon.facebook:hover {
+		background: linear-gradient(135deg, #1877f2, #165ed0);
+	}
+
+	.tooltip-social-icon.linkedin:hover {
+		background: linear-gradient(135deg, #0077b5, #005e94);
+	}
+
+	/* Animation for Pulse Effect */
+	@keyframes pulse {
+		0% {
+			box-shadow: 0 0 0 0 var(--secondary);
+		}
+		70% {
+			box-shadow: 0 0 0 20px rgba(110, 142, 251, 0);
+		}
+		100% {
+			box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
+		}
+	}
+
+	.button-content {
+		animation: pulse 3s infinite;
+	}
+
+	/* Hover Ripple Effect */
+	@keyframes ripple {
+		0% {
+			transform: scale(0);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(4);
+			opacity: 0;
+		}
+	}
+
+	.button-content::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: inherit;
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	.button-content:active::before {
+		animation: ripple 0.6s linear;
+	}
+
+	/* Tooltip Arrow */
+	.tooltip-content::before {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%) rotate(180deg);
+		border-width: 0 10px 10px 10px;
+		border-style: solid;
+		border-color: transparent transparent rgba(255, 255, 255, 0.9)
+			transparent;
+		filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.1));
+	}
+
+	/* Accessibility */
+	.button-content:focus {
+		outline: none;
+		box-shadow:
+			0 0 0 3px var(--primary),
+			0 8px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.button-content:focus:not(:focus-visible) {
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.button-content {
+			padding: 12px 24px;
+			border-radius: 40px;
+		}
+
+		.text {
+			font-size: 16px;
+		}
+
+		.tooltip-social-icon {
+			width: 4rem;
+			height: 4rem;
+		}
+
+		.tooltip-social-icon svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.button-content {
+			padding: 10px 20px;
+		}
+
+		.text {
+			font-size: 14px;
+		}
+
+		.tooltip-content {
+			width: 200px;
+			padding: 15px;
+		}
+
+		.tooltip-social-icon {
+			width: 40px;
+			height: 40px;
+		}
+
+		.tooltip-social-icon svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	/* Dark Mode Support */
+	@media (prefers-color-scheme: dark) {
+		.tooltip-content {
+			background: rgba(30, 30, 30, 0.9);
+			color: white;
+		}
+
+		.tooltip-content::before {
+			border-color: transparent transparent rgba(30, 30, 30, 0.9)
+				transparent;
+		}
+
+		.tooltip-social-icon {
+			background: #2a2a2a;
+		}
+
+		.tooltip-social-icon svg {
+			fill: #e0e0e0;
+		}
+	}
+
+	/* Print Styles */
+	@media print {
+		.tooltip-container {
+			display: none;
+		}
+	}
+
+	/* Reduced Motion */
+	@media (prefers-reduced-motion: reduce) {
+		.button-content,
+		.share-icon,
+		.tooltip-social-icon,
+		.tooltip-content {
+			transition: none;
+		}
+
+		.button-content {
+			animation: none;
+		}
+	}
+
+	/* Custom Scrollbar for Tooltip Content */
+	.tooltip-content::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.tooltip-content::-webkit-scrollbar-track {
+		background: #f1f1f1;
+		border-radius: 3px;
+	}
+
+	.tooltip-content::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 3px;
+	}
+
+	.tooltip-content::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+	/* Custom share button CSS end  */
+
+	@media (max-width: 768px) {
+		.side-nav {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: auto;
+			transform: none;
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		.social-links {
+			display: none;
+		}
+	}
+</style>

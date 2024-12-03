@@ -1,0 +1,63 @@
+---
+
+---
+
+<div id="retro-bg"></div>
+
+<script>
+	import * as THREE from 'three';
+
+	const scene = new THREE.Scene();
+	const camera = new THREE.PerspectiveCamera(
+		75,
+		window.innerWidth / window.innerHeight,
+		0.1,
+		1000
+	);
+	const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	document.getElementById('retro-bg').appendChild(renderer.domElement);
+
+	const geometry = new THREE.PlaneGeometry(50, 50, 20, 20);
+	const material = new THREE.MeshBasicMaterial({
+		color: 0x2ed574,
+		wireframe: true,
+		transparent: true,
+		opacity: 0.1,
+	});
+
+	const grid = new THREE.Mesh(geometry, material);
+	grid.rotation.x = Math.PI / 2;
+	scene.add(grid);
+
+	camera.position.z = 30;
+	camera.position.y = 10;
+	camera.lookAt(0, 0, 0);
+
+	function animate() {
+		requestAnimationFrame(animate);
+		grid.rotation.z += 0.002;
+		renderer.render(scene, camera);
+	}
+
+	animate();
+
+	window.addEventListener('resize', () => {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	});
+</script>
+
+<style>
+	#retro-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		opacity: 0.5;
+	}
+</style>

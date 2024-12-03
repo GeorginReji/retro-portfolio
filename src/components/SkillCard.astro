@@ -1,0 +1,43 @@
+---
+export interface Props {
+	domain: string;
+	skills: string[];
+}
+
+const { domain, skills } = Astro.props;
+---
+
+<div>
+	<div class="skill-content">
+		<h4>{domain}</h4>
+		<div class="skill-stack">
+			{skills.map((skill) => <span class="skill-badge">{skill}</span>)}
+		</div>
+	</div>
+</div>
+
+<style>
+	.skill-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 1rem;
+	}
+	.skill-content h4 {
+		min-width: 10rem;
+	}
+	.skill-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: flex-start;
+	}
+
+	.skill-badge {
+		background: rgba(57, 255, 20, 0.1);
+		border: 1px solid var(--primary);
+		padding: 0.2rem 0.5rem;
+		font-size: 0.6rem;
+		border-radius: 2px;
+	}
+</style>

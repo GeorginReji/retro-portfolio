@@ -1,0 +1,302 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SideNav from '../components/SideNav.astro';
+import RetroBackground from '../components/RetroBackground.astro';
+import Experience from '../components/Experience.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SkillCard from '../components/SkillCard.astro';
+---
+
+<Layout title="Georgin Reji - Frontend Developer">
+	<RetroBackground />
+	<div class="scanlines"></div>
+	<Header />
+	<SideNav />
+
+	<main>
+		<div class="content-container">
+			<section id="home" class="hero">
+				<div class="intro">
+					<div class="name-container">
+						<span>I'm Georgin Reji</span>
+					</div>
+					<div class="typed-wrapper">
+						<div class="typewriter" id="typewriter"></div>
+					</div>
+					<button type="submit" class="download-cv-btn pixel-corners">
+						<div class="download-btn-text">
+							<span>Download CV</span>
+							<svg width="24px" height="24px" viewBox="0 0 24 24">
+								<path
+									d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
+									stroke="rgb(46, 213, 115)"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
+							</svg>
+						</div>
+					</button>
+				</div>
+			</section>
+			<div class="details-container">
+				<section id="about" class="content-section pixel-corners">
+					<h2>ABOUT ME</h2>
+					<p class="about-text">
+						Enthusiastic frontend developer who actively explores
+						new technologies and stays up-to-date with industry
+						trends. Passionate about collaborating with design teams
+						to bridge the gap between design and development,
+						ensuring seamless, user-focused interfaces and
+						experiences.
+					</p>
+
+					<div class="skills-section">
+						<h3>SKILLS</h3>
+						<SkillCard
+							domain="Frontend"
+							skills={[
+								'HTML',
+								'CSS',
+								'JavaScript',
+								'TypeScript',
+								'React',
+								'Redux',
+								'MUI',
+								'React Query',
+								'React Hook Form',
+								'Vue',
+								'Nuxt',
+							]}
+						/>
+						<SkillCard
+							domain="Backend"
+							skills={['NodeJs', 'FastAPI']}
+						/>
+						<SkillCard
+							domain="Tools & Platforms"
+							skills={[
+								'Git',
+								'GitHub',
+								'Azure',
+								'Docker',
+								'Postman',
+								'Devtools',
+							]}
+						/>
+					</div>
+
+					<div class="education">
+						<h3>EDUCATION</h3>
+						<div class="education-item">
+							<h4>Master in Computer Science</h4>
+							<p>
+								Kristu Jayanti College, Autonomous<span
+									class="date">(Jun. 2020 - Jun. 2022)</span
+								>
+							</p>
+						</div>
+					</div>
+				</section>
+				<section id="expertise" class="content-section pixel-corners">
+					<Experience />
+				</section>
+
+				<section id="projects" class="content-section pixel-corners">
+					<h2>FREELANCE PROJECTS</h2>
+					<ProjectCard
+						title="E-Commerce Application"
+						description={[
+							'Designed and developed an e-commerce platform with admin-side CRUD operations for managing products and orders.',
+							'Implemented Google OAuth for authentication.',
+						]}
+						technologies={['Nuxt 3', 'Pinia', 'Elements Plus']}
+						githubUrl="#"
+					/>
+
+					<ProjectCard
+						title="CRM Solution"
+						description={[
+							'Developed a UI to store customer and employees information and generate invoice.',
+						]}
+						technologies={['HTML', 'CSS', 'Bootstrap', 'PHP']}
+						githubUrl="#"
+					/>
+				</section>
+
+				<section id="contact" class="content-section">
+					<ContactForm />
+				</section>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	import Typed from 'typed.js';
+
+	new Typed('#typewriter', {
+		strings: ['Frontend Developer', 'UI/UX Designer'],
+		typeSpeed: 50,
+		backSpeed: 50,
+		loop: true,
+		backDelay: 2000,
+		cursorChar: '_',
+	});
+
+	// Smooth scrolling
+	document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const section = document.querySelector(this.getAttribute('href'));
+			section.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+</script>
+
+<style>
+	main {
+		margin-left: 160px;
+		display: flex;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.content-container {
+		display: flex;
+		width: 100%;
+	}
+
+	.hero {
+		top: 0;
+		width: 40%;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+	}
+
+	.typed-wrapper {
+		display: flex;
+		gap: 6px;
+	}
+
+	.details-container {
+		width: 70%;
+		height: 100vh;
+		overflow-y: auto;
+
+		/* hiding scrollbar */
+		/* scrollbar-width: none; */
+		/* -ms-overflow-style: none;  */
+	}
+
+	/* hiding WebKit browsers (Chrome, Safari) */
+	/* .details-container::-webkit-scrollbar {
+		display: none; 
+	} */
+
+	.skills-section {
+		margin: 1rem 0rem;
+	}
+
+	.intro {
+		/* text-align: left; */
+	}
+
+	.name-container {
+		font-size: 2.5rem;
+		color: var(--primary);
+		margin-bottom: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.typed-cursor {
+		animation: blink 1s infinite;
+	}
+
+	.download-cv-btn {
+		background: transparent;
+		border: 2px solid var(--primary);
+		color: var(--primary);
+		padding: 0.8rem 2rem;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: inherit;
+	}
+
+	.download-cv-btn:hover {
+		background: var(--primary);
+		color: var(--background);
+	}
+	.download-cv-btn:hover svg path {
+		stroke: black;
+	}
+	.download-btn-text {
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		font-size: 1em;
+	}
+
+	@keyframes blink {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+
+	.typewriter {
+		font-size: 1.5rem;
+		height: 3rem;
+		color: var(--text);
+	}
+
+	.content-section {
+		margin: 4rem 0;
+		padding: 2rem;
+		border: 2px solid var(--secondary);
+		background: rgba(10, 10, 10, 0.8);
+		transition: transform 0.3s ease;
+	}
+
+	.education {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.date {
+		margin-left: 0.5rem;
+	}
+	@media (max-width: 768px) {
+		main {
+			margin-left: 0;
+			flex-direction: column;
+		}
+
+		.hero,
+		.details-container {
+			width: 100%;
+			height: auto;
+		}
+		.intro {
+			margin-left: 2rem;
+		}
+		.content-container {
+			margin-top: 4rem;
+			flex-direction: column;
+			overflow-y: auto; /* Add this line */
+			max-height: 80vh;
+		}
+
+		.details-container {
+			overflow-y: visible;
+		}
+	}
+</style>

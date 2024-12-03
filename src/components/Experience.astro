@@ -1,0 +1,77 @@
+---
+import ProjectCard from './ProjectCard.astro';
+---
+
+<div class="experience">
+	<h2>EXPERIENCE</h2>
+	<div class="company-info">
+		<h3>Data Semantics</h3>
+		<p class="date">April 2022 - Present, Bangalore</p>
+	</div>
+
+	<ProjectCard
+		title="Intelligent Document Processing Automation System"
+		description={[
+			'Collaborated with a team of frontend and backend developers to create reusable components in React, enabling efficient document tagging for IDP models.',
+			'Created and deployed Node.js WebJobs to extract attachments from an Outlook mailbox and store them in Azure Blob Storage.',
+			'Optimized the application and improved developer experience by implementing libraries like React Hook Form for streamlined form data handling and React Query for client-side caching and API integration.',
+		]}
+		technologies={[
+			'React',
+			'TypeScript',
+			'MUI',
+			'Node.js',
+			'Azure',
+			'React Query',
+			'React Hook Form',
+		]}
+	/>
+
+	<ProjectCard
+		title="Account Receivable Automation"
+		description={[
+			'Developed several components in Vue, including dynamic tables to display data based on customer selections.',
+			'Created an advanced toolbar with search and filtering features for precise and efficient data retrieval.',
+			'Implemented state management with Vuex to maintain filtered data across multiple pages.',
+		]}
+		technologies={['Vue', 'Vuex', 'JavaScript', 'Elements UI']}
+	/>
+
+	<ProjectCard
+		title="Quarterly Finance Planning Tool"
+		description={[
+			'Developed three client-side applications using SPFx React to calculate and store financial data in SharePoint, utilizing it as both the storage and backend service.',
+			'Designed a spreadsheet-like UI using Ant Design with custom formulas for each line item, enabling the creation of comprehensive quarterly financial reports.',
+			'Implemented role-based authentication and integrated Power Automate triggers to efficiently handle large data transfers into SharePoint.',
+		]}
+		technologies={[
+			'React',
+			'SPFx',
+			'SharePoint',
+			'Ant Design',
+			'Power Automate',
+		]}
+	/>
+</div>
+
+<style>
+	.experience {
+		margin-bottom: 3rem;
+	}
+
+	.company-info {
+		margin-bottom: 2rem;
+	}
+
+	.company-info h3 {
+		color: var(--primary);
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.date {
+		font-size: 0.8rem;
+		color: var(--text);
+		opacity: 0.8;
+	}
+</style>
