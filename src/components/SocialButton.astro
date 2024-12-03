@@ -42,6 +42,57 @@ const { socialItems } = Astro.props;
 	</div>
 </div>
 
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const socialButton = document.querySelector('.button-content');
+		const tooltipContent = document.querySelector(
+			'.tooltip-content'
+		) as HTMLElement;
+		const tooltipContainer = document.querySelector('.tooltip-container');
+
+		if (socialButton && tooltipContent && tooltipContainer) {
+			let isManuallyOpened = false;
+
+			socialButton.addEventListener('click', (event) => {
+				event.stopPropagation();
+				isManuallyOpened = !isManuallyOpened;
+
+				tooltipContent.style.opacity = isManuallyOpened ? '1' : '0';
+				tooltipContent.style.visibility = isManuallyOpened
+					? 'visible'
+					: 'hidden';
+			});
+
+			// Close tooltip when clicking outside
+			document.addEventListener('click', (event) => {
+				if (
+					isManuallyOpened &&
+					!tooltipContainer.contains(event.target as Node)
+				) {
+					isManuallyOpened = false;
+					tooltipContent.style.opacity = '0';
+					tooltipContent.style.visibility = 'hidden';
+				}
+			});
+
+			// Prevent hover from interfering with manual toggle
+			tooltipContainer.addEventListener('mouseenter', (event) => {
+				if (!isManuallyOpened) {
+					tooltipContent.style.opacity = '1';
+					tooltipContent.style.visibility = 'visible';
+				}
+			});
+
+			tooltipContainer.addEventListener('mouseleave', (event) => {
+				if (!isManuallyOpened) {
+					tooltipContent.style.opacity = '0';
+					tooltipContent.style.visibility = 'hidden';
+				}
+			});
+		}
+	});
+</script>
+
 <style>
 	/* Custom share button CSS start */
 	/* Container Styles */
@@ -171,7 +222,6 @@ const { socialItems } = Astro.props;
 		visibility: visible;
 		pointer-events: auto;
 	}
-
 	/* Social Icons Styles */
 	.tooltip-social-icons {
 		display: flex;

@@ -68,13 +68,16 @@ const socialItems = [
 	// },
 ];
 // TODO: Make links active based on current active section
-// TODO: Freelance project alignment fix.
 ---
 
 <nav class="side-nav">
 	{
 		navItems.map((item) => (
-			<a href={item.href} class="nav-item">
+			<a
+				href={item.href}
+				class="nav-item"
+				data-section={item.href.replace('#', '')}
+			>
 				{item.text}
 			</a>
 		))
@@ -103,6 +106,47 @@ const socialItems = [
 	</div>
 </nav>
 
+<script>
+	// Function to check which section is in view
+	function updateActiveNavItem() {
+		const navItems = document.querySelectorAll('.nav-item');
+		const sections = document.querySelectorAll('section');
+
+		navItems.forEach((navItem) => {
+			const sectionId = navItem.getAttribute('data-section');
+			const correspondingSection = document.getElementById(sectionId);
+
+			if (correspondingSection) {
+				const rect = correspondingSection.getBoundingClientRect();
+				const isInView =
+					rect.top <= window.innerHeight / 2 &&
+					rect.bottom >= window.innerHeight / 2;
+
+				navItem.classList.toggle('active', isInView);
+			}
+		});
+	}
+
+	// Add click event to nav items
+	document.querySelectorAll('.nav-item').forEach((navItem) => {
+		navItem.addEventListener('click', function () {
+			// Remove active class from all nav items
+			document.querySelectorAll('.nav-item').forEach((item) => {
+				item.classList.remove('active');
+			});
+			// Add active class to clicked item
+			this.classList.add('active');
+		});
+	});
+
+	// Add scroll event listener
+	const detailsContainer =
+		document.getElementsByClassName('details-container')[0];
+	detailsContainer.addEventListener('scroll', updateActiveNavItem);
+	// Initial call to set active section on page load
+	updateActiveNavItem();
+</script>
+
 <style>
 	.side-nav {
 		position: fixed;
@@ -127,7 +171,8 @@ const socialItems = [
 	.btn-wrapper {
 		display: none;
 	}
-	.nav-item:hover {
+	.nav-item:hover,
+	.nav-item.active {
 		text-shadow: 0 0 8px var(--primary);
 		transform: translateX(5px);
 	}
