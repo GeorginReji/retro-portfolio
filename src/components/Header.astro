@@ -6,6 +6,55 @@
 	<div class="console-log">console.log("Hello, World!");</div>
 </header>
 
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const header = document.querySelector('.header') as HTMLElement;
+		const progressLine = document.createElement('div');
+
+		progressLine.style.position = 'absolute';
+		progressLine.style.bottom = '0';
+		progressLine.style.left = '0';
+		progressLine.style.height = '2px';
+		progressLine.style.backgroundColor = 'var(--primary)';
+		progressLine.style.width = '0%';
+		progressLine.style.transition = 'width 0.2s ease';
+		header.style.position = 'fixed';
+		header.appendChild(progressLine);
+		header.appendChild(progressLine);
+
+		function setupScrollProgress() {
+			const isMobile = window.innerWidth < 768;
+			const scrollContainer = isMobile
+				? document.querySelector('.content-container')
+				: document.querySelector('.details-container');
+
+			if (!scrollContainer) return;
+
+			function updateProgressLine() {
+				const scrollTop = scrollContainer.scrollTop;
+				const docHeight =
+					scrollContainer.scrollHeight - scrollContainer.clientHeight;
+				const scrollProgress =
+					docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+				progressLine.style.width = `${scrollProgress}%`;
+			}
+
+			// Remove previous listeners
+			scrollContainer.removeEventListener('scroll', updateProgressLine);
+
+			// Add new scroll listener
+			scrollContainer.addEventListener('scroll', updateProgressLine);
+		}
+
+		// Initial setup
+		setupScrollProgress();
+
+		// Resize listener
+		window.addEventListener('resize', setupScrollProgress);
+	});
+</script>
+
 <style>
 	.header {
 		position: fixed;
@@ -18,7 +67,15 @@
 		/* border-bottom: 2px solid var(--primary); */
 		z-index: 1000;
 	}
-
+	/* .scroll-progress-line {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		background: var(--primary);
+		width: 0;
+		transition: width 0.2s ease;
+	} */
 	.console-log {
 		font-family: monospace;
 		color: var(--primary);
