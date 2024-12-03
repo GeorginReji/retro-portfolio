@@ -67,7 +67,7 @@ const socialItems = [
 	// 	],
 	// },
 ];
-// TODO: Make links active based on current active section
+// TODO: Fix the resize link active issue.
 ---
 
 <nav class="side-nav">
@@ -139,18 +139,30 @@ const socialItems = [
 		});
 	});
 
-	// Add scroll event listener
-	if (window.innerWidth < 768) {
-		const detailsContainer =
-			document.getElementsByClassName('content-container')[0];
-		detailsContainer.addEventListener('scroll', updateActiveNavItem);
-	} else {
-		const detailsContainer =
-			document.getElementsByClassName('details-container')[0];
-		detailsContainer.addEventListener('scroll', updateActiveNavItem);
+	// Add scroll event listener for navigation link styling
+	function setupScrollListener() {
+		const isMobile = window.innerWidth < 768;
+		const scrollContainer = isMobile
+			? (document.getElementsByClassName(
+					'content-container'
+				)[0] as HTMLElement)
+			: (document.getElementsByClassName(
+					'details-container'
+				)[0] as HTMLElement);
+
+		// Remove previous listener if exists
+		const oldListener = scrollContainer['scrollListener'];
+		if (oldListener)
+			scrollContainer.removeEventListener('scroll', oldListener);
+		const scrollHandler = updateActiveNavItem;
+		scrollContainer.addEventListener('scroll', scrollHandler);
+		scrollContainer['scrollListener'] = scrollHandler;
 	}
+	setupScrollListener();
+
+	window.addEventListener('resize', setupScrollListener);
 	// Initial call to set active section on page load
-	updateActiveNavItem();
+	document.addEventListener('DOMContentLoaded', updateActiveNavItem);
 </script>
 
 <style>
