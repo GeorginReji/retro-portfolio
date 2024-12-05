@@ -16,7 +16,11 @@ const { socialItems } = Astro.props;
 		<div class="tooltip-social-icons">
 			{
 				socialItems.map((item) => (
-					<a href={item.link} class="tooltip-social-icon">
+					<a
+						href={item.link}
+						class="tooltip-social-icon"
+						target="_blank"
+					>
 						<svg viewBox={item.viewBox} width="24" height="24">
 							{item.d.map((d) => (
 								<path d={d} />
