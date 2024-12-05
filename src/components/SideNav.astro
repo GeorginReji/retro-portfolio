@@ -159,16 +159,22 @@ const socialItems = [
 	}
 	setupScrollListener();
 
-	window.addEventListener('resize', () => {
-		setupScrollListener();
-
-		// This class will crop the tooltip view of social button so removing it on mobile screen
+	function removePixelCornerClass() {
 		const navItem = document.getElementsByTagName('nav')[0];
 		const isMobile = window.innerWidth < 768;
 		navItem.classList.toggle('pixel-corners', !isMobile);
+	}
+
+	window.addEventListener('resize', () => {
+		setupScrollListener();
+		removePixelCornerClass();
+		// This class will crop the tooltip view of social button so removing it on mobile screen
 	});
 	// Initial call to set active section on page load
-	document.addEventListener('DOMContentLoaded', updateActiveNavItem);
+	document.addEventListener('DOMContentLoaded', () => {
+		updateActiveNavItem();
+		removePixelCornerClass();
+	});
 </script>
 
 <style>
